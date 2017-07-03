@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- DBCP 를 이용한 DataSource설정 -->
+	<bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@211.178.206.42:1521:ORCL"/>
+		<property name="username" value="picplace"/>
+		<property name="password" value="picplace"/>		
+	</bean>
+
+	<!-- SqlMapClient 객체 설정 -->
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:com/sqlmap/SqlMapConfig.xml"/>
+	</bean>
+</beans>

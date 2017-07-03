@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.sqlmap.sample">
+	
+	<resultMap id="sampleMap" class="java.util.HashMap">
+          <result column="BOARD_SEQ" property="idx"/>
+          <result column="TITLE" property="name"/>
+          <result column="TEXT" property="title"/>
+          <result column="IN_DTTM" property="contents"/>
+          <result column="USE_YN" property="USE_YN"/>
+          <result column="BOARD_TYPE" property="BOARD_TYPE"/>
+          <result column="USER_SEQ" property="USER_SEQ"/>
+          <result column="GUBUN1" property="GUBUN1"/>
+          <result column="GUBUN2" property="GUBUN2"/>
+          <result column="GUBUN3" property="GUBUN3"/>
+          <result column="VIEW_CNT" property="VIEW_CNT"/>
+     </resultMap>
+
+	<!--db접속 테스트 -->
+	<select id="showtable" resultClass="java.util.HashMap">
+	     SELECT BOARD_SEQ , TITLE
+	     FROM BOARD
+    </select>
+</sqlMap>
